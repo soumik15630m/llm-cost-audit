@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sample LLM Cost Audit — Illustrative Report</title>
+    <!--
+      ────────────────────────────────────────────────────────────────────────
+      EDITABLE SAMPLE TEMPLATE — LLM Cost Audit deliverable.
+
+      FOUNDER: replace the illustrative ANALYSIS and NUMBERS below with your own
+      real reasoning for a given engagement. The DESIGN is yours to keep; the
+      expertise on the page must be yours, not generated.
+
+      KEEP THE "SAMPLE REPORT" DISCLAIMER ON PAGE 1 AND IN EVERY PAGE FOOTER,
+      REGARDLESS — this file must never be mistaken for a real engagement.
+
+      To export a PDF: open in any browser → Print → "Save as PDF"
+      (A4 / Letter, background graphics ON, margins: default).
+      ────────────────────────────────────────────────────────────────────────
+    -->
+    <style>
+      :root {
+        --ink: #0a0908;
+        --elev: #15110d;
+        --accent: #e3b566;
+        --body: #ece4d6;
+        --headline: #fcf8f0;
+        --muted: #9a9082;
+        --hairline: rgba(240, 231, 214, 0.1);
+        --mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, monospace;
+        --sans: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        --serif: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: #050403;
+        color: var(--body);
+        font-family: var(--sans);
+        line-height: 1.6;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 16px auto;
+        background: var(--ink);
+        padding: 22mm 20mm 26mm;
+        position: relative;
+        box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.8);
+      }
+      h1, h2, h3 { color: var(--headline); letter-spacing: -0.02em; font-family: var(--serif); font-weight: 600; }
+      h1 { font-size: 26px; margin: 0; }
+      h2 {
+        font-size: 17px;
+        margin: 30px 0 10px;
+        padding-top: 14px;
+        border-top: 1px solid var(--hairline);
+      }
+      h3 { font-size: 13px; margin: 18px 0 6px; }
+      p { margin: 8px 0; font-size: 12.5px; }
+      .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+      .accent { color: var(--accent); }
+      .muted { color: var(--muted); }
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      /* Persistent SAMPLE stamp — page 1 banner */
+      .sample-banner {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgba(227, 181, 102, 0.35);
+        background: rgba(227, 181, 102, 0.06);
+        color: var(--body);
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 11.5px;
+        margin: 18px 0 4px;
+      }
+      .sample-banner strong { color: var(--accent); }
+
+      /* Header */
+      .brand { display: flex; align-items: center; gap: 10px; }
+      .bars { display: flex; gap: 4px; align-items: flex-end; }
+      .bars i { width: 7px; background: var(--accent); border-radius: 2px; display: block; }
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--hairline);
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 16px;
+      }
+      .meta-grid div { background: var(--elev); padding: 12px 14px; }
+      .meta-grid .k { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+      .meta-grid .v { font-size: 14px; color: var(--headline); margin-top: 3px; }
+
+      /* Headline result */
+      .result {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 14px;
+        margin: 18px 0 4px;
+      }
+      .result .cell {
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        padding: 16px;
+        background: var(--elev);
+      }
+      .result .big { font-family: var(--mono); font-size: 30px; color: var(--headline); }
+      .result .cell.win { border-color: rgba(227, 181, 102, 0.4); }
+      .result .cell.win .big { color: var(--accent); }
+      .result .lab { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+      /* Table */
+      table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+      th, td { border: 1px solid var(--hairline); padding: 9px 11px; text-align: left; }
+      th { background: rgba(255, 255, 255, 0.03); color: var(--headline); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+      td.num, th.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+      tr.total td { font-weight: 700; color: var(--headline); background: rgba(255,255,255,0.02); }
+      .save { color: var(--accent); }
+
+      /* Bar chart */
+      .chart { margin-top: 14px; }
+      .bar-row { display: grid; grid-template-columns: 70px 1fr 90px; align-items: center; gap: 12px; margin: 10px 0; }
+      .bar-label { font-size: 11px; color: var(--muted); }
+      .bar-track { height: 26px; background: rgba(255,255,255,0.05); border-radius: 6px; overflow: hidden; }
+      .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 10px; font-family: var(--mono); font-size: 11px; color: #1c1407; font-weight: 700; }
+      .bar-fill.before { background: linear-gradient(90deg, #5c554a, #7a7264); color: #fff; }
+      .bar-fill.after { background: linear-gradient(90deg, #f2ce86, #e3b566); }
+      .bar-val { font-family: var(--mono); font-size: 12px; text-align: right; }
+
+      .fix { border-left: 2px solid var(--accent); padding-left: 14px; margin: 12px 0; }
+      ul { font-size: 12.5px; padding-left: 18px; }
+      li { margin: 5px 0; }
+      li::marker { color: var(--muted); }
+
+      /* Persistent footer disclaimer on every page */
+      .footer {
+        position: absolute;
+        left: 20mm;
+        right: 20mm;
+        bottom: 12mm;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid var(--hairline);
+        padding-top: 8px;
+        font-size: 9.5px;
+        color: var(--muted);
+      }
+      .footer strong { color: var(--accent); }
+
+      @page { size: A4; margin: 0; }
+      @media print {
+        body { background: #fff; }
+        .page { margin: 0; box-shadow: none; width: auto; min-height: 100vh; page-break-after: always; }
+        .page:last-child { page-break-after: auto; }
+        .screen-only { display: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ───────────────────────────── PAGE 1 ───────────────────────────── -->
+    <section class="page">
+      <div class="brand">
+        <span class="bars" aria-hidden="true">
+          <i style="height: 22px"></i><i style="height: 16px; opacity: 0.7"></i><i style="height: 10px; opacity: 0.45"></i>
+        </span>
+        <strong style="color: #fff; font-size: 15px">LLM Cost Audit</strong>
+        <span class="muted" style="font-size: 11px; margin-left: auto">Findings Report</span>
+      </div>
+
+      <div class="sample-banner">
+        <strong>SAMPLE REPORT</strong>
+        <span>— illustrative figures only. Contains no real company or client data.</span>
+      </div>
+
+      <p class="eyebrow" style="margin-top: 22px">Confidential findings · prepared under NDA</p>
+      <h1 style="margin-top: 6px; font-size: 28px; line-height: 1.15">
+        Inference Cost Assessment
+      </h1>
+      <p class="muted" style="margin-top: 4px">
+        A fictional, representative engagement showing the structure and depth of a real deliverable.
+      </p>
+
+      <div class="meta-grid">
+        <div><div class="k">Client profile</div><div class="v">Series-A · support automation</div></div>
+        <div><div class="k">Provider</div><div class="v">Anthropic API</div></div>
+        <div><div class="k">Baseline spend</div><div class="v mono">~$11,000 / mo</div></div>
+        <div><div class="k">Workload</div><div class="v">~30k calls / day</div></div>
+        <div><div class="k">Sample window</div><div class="v">30 days of usage export</div></div>
+        <div><div class="k">Prepared</div><div class="v mono">SAMPLE</div></div>
+      </div>
+
+      <h2>Headline result</h2>
+      <div class="result">
+        <div class="cell">
+          <div class="big mono">$11,000</div>
+          <div class="lab">Current — per month</div>
+        </div>
+        <div class="cell win">
+          <div class="big mono">$4,200</div>
+          <div class="lab">Optimized — per month</div>
+        </div>
+        <div class="cell win">
+          <div class="big mono">−62%</div>
+          <div class="lab">Unit-cost reduction</div>
+        </div>
+      </div>
+      <p class="muted" style="font-size: 11.5px">
+        Savings here are expressed as <strong class="accent">unit cost</strong> — cost per 1,000 calls on a fixed
+        sample of traffic, before vs after — not the total monthly bill, which moves with usage. Every figure on
+        this page is illustrative.
+      </p>
+
+      <h2>Where the spend leaks</h2>
+      <p>
+        Four mechanical inefficiencies account for essentially all of the recoverable spend. None require touching
+        product behavior, model quality, or output. In rough order of recoverable dollars:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Leak</th>
+            <th class="num">Current / mo</th>
+            <th class="num">Optimized / mo</th>
+            <th class="num">Saved</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Uncached repeated prefix <span class="muted">(system prompt + tool defs, re-sent every call)</span></td>
+            <td class="num">$6,400</td>
+            <td class="num">$1,400</td>
+            <td class="num save">$5,000</td>
+          </tr>
+          <tr>
+            <td>Frontier model on low-complexity calls <span class="muted">(classification, routing)</span></td>
+            <td class="num">$2,400</td>
+            <td class="num">$1,100</td>
+            <td class="num save">$1,300</td>
+          </tr>
+          <tr>
+            <td>Async jobs at real-time price <span class="muted">(no Batch API)</span></td>
+            <td class="num">$1,200</td>
+            <td class="num">$700</td>
+            <td class="num save">$500</td>
+          </tr>
+          <tr>
+            <td>Unbounded context + oversized <span class="mono">max_tokens</span></td>
+            <td class="num">$1,000</td>
+            <td class="num">$1,000</td>
+            <td class="num muted">—</td>
+          </tr>
+          <tr class="total">
+            <td>Total</td>
+            <td class="num">$11,000</td>
+            <td class="num">$4,200</td>
+            <td class="num save">$6,800</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="footer">
+        <span><strong>SAMPLE REPORT</strong> — illustrative figures only · no real company or client data</span>
+        <span class="mono">Page 1 / 2</span>
+      </div>
+    </section>
+
+    <!-- ───────────────────────────── PAGE 2 ───────────────────────────── -->
+    <section class="page">
+      <h2 style="border-top: none; margin-top: 0; padding-top: 0">Before vs after</h2>
+      <div class="chart">
+        <div class="bar-row">
+          <div class="bar-label">Before</div>
+          <div class="bar-track"><div class="bar-fill before" style="width: 100%">$11,000 / mo</div></div>
+          <div class="bar-val muted">100%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">After</div>
+          <div class="bar-track"><div class="bar-fill after" style="width: 38.2%">$4,200 / mo</div></div>
+          <div class="bar-val accent">38%</div>
+        </div>
+      </div>
+      <p class="muted" style="font-size: 11.5px">
+        Per-1,000-call unit cost on the agreed sample falls from <span class="mono">$12.20</span> to
+        <span class="mono accent">$4.66</span>. The total bill may still rise as the product grows — which is exactly
+        why the engagement is measured on unit cost, verifiable against the client's own invoices.
+      </p>
+
+      <h2>The fix</h2>
+
+      <div class="fix">
+        <h3>1 · Prompt caching on the static prefix &nbsp;<span class="muted mono">≈ $5,000 / mo</span></h3>
+        <p>
+          The 3–4k-token system prompt and tool schemas are identical on every call but reprocessed at full price
+          ~30k times a day. Mark them with <span class="mono">cache_control</span> and reorder so everything static
+          sits ahead of anything dynamic. Cache reads bill at ~10% of input. No output change.
+        </p>
+      </div>
+
+      <div class="fix">
+        <h3>2 · Tier routing for mechanical calls &nbsp;<span class="muted mono">≈ $1,300 / mo</span></h3>
+        <p>
+          Classification, intent detection, and routing are wired to the frontier tier out of habit. Route them to a
+          model ~5× cheaper that produces identical labels; keep the top tier only for genuine reasoning. A few lines
+          of conditional logic.
+        </p>
+      </div>
+
+      <div class="fix">
+        <h3>3 · Batch API for async work &nbsp;<span class="muted mono">≈ $500 / mo</span></h3>
+        <p>
+          Nightly summarization and enrichment tolerate hours of latency but run on the synchronous endpoint. Move them
+          to the Batch API for a 50% discount on input and output — same model, same result.
+        </p>
+      </div>
+
+      <div class="fix">
+        <h3>4 · Context &amp; output hygiene &nbsp;<span class="muted">monitored</span></h3>
+        <p>
+          Introduce a sliding-window / summarization strategy for long conversations and right-size
+          <span class="mono">max_tokens</span>. Mostly preventive — it stops unit cost from creeping back up as
+          sessions get longer.
+        </p>
+      </div>
+
+      <h2>How savings would be verified</h2>
+      <ul>
+        <li>Fix scope agreed up front against a <strong>fixed sample</strong> of representative traffic.</li>
+        <li>Unit cost (cost / 1,000 calls) measured <strong>before and after</strong> on that same sample.</li>
+        <li>Result cross-checked against the client's <strong>own provider invoices</strong> — nothing taken on faith.</li>
+        <li>Any savings-based fee is owed <strong>only if the agreed reduction is achieved</strong>.</li>
+      </ul>
+
+      <p class="muted" style="margin-top: 16px; font-size: 11px">
+        Figures throughout are illustrative and based on public 2026 API pricing mechanics. Actual results depend on a
+        client's real traffic, context size, and model mix.
+      </p>
+
+      <div class="footer">
+        <span><strong>SAMPLE REPORT</strong> — illustrative figures only · no real company or client data</span>
+        <span class="mono">Page 2 / 2</span>
+      </div>
+    </section>
+  </body>
+</html>

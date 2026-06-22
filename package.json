@@ -1,0 +1,33 @@
+{
+  "name": "llm-cost-audit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing site for an LLM / inference cost audit practice.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "@vercel/analytics": "^1.4.1",
+    "@vercel/speed-insights": "^1.1.0",
+    "framer-motion": "^12.4.2",
+    "gray-matter": "^4.0.3",
+    "lenis": "^1.1.18",
+    "next": "15.5.19",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-markdown": "^9.0.3",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.7.3"
+  }
+}

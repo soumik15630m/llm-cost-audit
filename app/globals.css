@@ -1,0 +1,399 @@
+@import "tailwindcss";
+
+/*
+ * Design system — "dark editorial / engineering ledger".
+ *
+ * Committed dark-editorial lane (the Linear / Palantir / Payhawk camp, not the
+ * neon-shader one): warm near-black, a single confident honey-gold accent, a
+ * neo-serif display paired with a grotesque body and monospace data, plus film
+ * grain. Deliberately NOT the cold blue-ink + electric-teal "AI SaaS" default.
+ * Tailwind v4 CSS-first tokens become utilities (bg-ink, text-accent, …).
+ */
+@theme {
+  /* Warm palette */
+  --color-ink: #0a0908; /* page background — warm near-black */
+  --color-ink-2: #0d0b09; /* alternating section band */
+  --color-ink-elevated: #15110d; /* cards / elevated surfaces */
+  --color-accent: #e3b566; /* single honey-gold accent, used sparingly */
+  --color-accent-strong: #f2ce86; /* hover / highlight */
+  --color-body: #ece4d6; /* warm paper body copy */
+  --color-headline: #fcf8f0; /* warm white headlines */
+  --color-muted: #9a9082; /* warm secondary text */
+
+  /* Type — injected by next/font in layout.tsx */
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.22, 1.2, 0.36, 1);
+}
+
+:root {
+  --hairline: rgba(240, 231, 214, 0.09);
+  --hairline-strong: rgba(240, 231, 214, 0.16);
+  --accent-glow: rgba(227, 181, 102, 0.14);
+}
+
+@layer base {
+  * {
+    border-color: var(--hairline);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  /* Lenis drives smooth scroll; disable native smooth to avoid double easing. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Neo-serif display for all headings — the editorial signal. */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-headline);
+    font-weight: 460;
+    letter-spacing: -0.018em;
+    font-optical-sizing: auto;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: rgba(227, 181, 102, 0.22);
+    color: var(--color-headline);
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 74rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  /* Editorial spec label (Linear-style "FIG 0.2"): leading rule + mono caps. */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.6rem;
+    height: 1px;
+    background: var(--color-accent);
+    opacity: 0.8;
+  }
+
+  /* Primary — honey-gold. Magnetic wrapper adds the translate; this is the rest. */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 7px;
+    background: linear-gradient(180deg, var(--color-accent-strong), var(--color-accent));
+    color: #1c1407;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.3rem;
+    line-height: 1.1;
+    transition: filter 0.2s ease, box-shadow 0.2s ease, transform 0.2s var(--ease-spring);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      0 1px 1px rgba(0, 0, 0, 0.4),
+      0 12px 34px -14px var(--accent-glow);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.06);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      0 1px 1px rgba(0, 0, 0, 0.4),
+      0 16px 44px -12px rgba(227, 181, 102, 0.4);
+  }
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 7px;
+    border: 1px solid var(--hairline-strong);
+    color: var(--color-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.3rem;
+    line-height: 1.1;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(227, 181, 102, 0.55);
+    background-color: rgba(240, 231, 214, 0.025);
+    color: var(--color-headline);
+  }
+
+  .card {
+    background-color: var(--color-ink-elevated);
+    border: 1px solid var(--hairline);
+    border-radius: 14px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  }
+
+  /* Inline link with a wipe underline. */
+  .link-a {
+    color: var(--color-accent);
+    background-image: linear-gradient(var(--color-accent), var(--color-accent));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    transition: background-size 0.3s var(--ease-out-expo);
+    padding-bottom: 1px;
+  }
+  .link-a:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Hairline divider with a centered gold node. */
+  .rule-node {
+    position: relative;
+    height: 1px;
+    background: var(--hairline);
+  }
+}
+
+/* Film grain — CSS/SVG noise over everything (performant, premium, no WebGL). */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Ambient hero backdrop — warm gold drift + faint grid. Pure CSS. */
+.ambient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.ambient::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(38% 48% at 18% 8%, rgba(227, 181, 102, 0.11), transparent 70%),
+    radial-gradient(32% 42% at 88% 0%, rgba(227, 181, 102, 0.06), transparent 70%);
+  animation: ambient-drift 26s ease-in-out infinite alternate;
+}
+.ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(240, 231, 214, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(240, 231, 214, 0.028) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(78% 60% at 50% 0%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(78% 60% at 50% 0%, #000 30%, transparent 80%);
+}
+@keyframes ambient-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(2%, 2%, 0) scale(1.05); }
+}
+
+/*
+ * Isometric cost-stack — the scroll-teardown centerpiece. CSS 3D only (no WebGL):
+ * a stack of "context layer" plates on a glowing GPU/API base, in an isometric
+ * scene. Plates lift along Z (which reads as "up" after the rotateX tilt).
+ */
+.iso-scene {
+  perspective: 1600px;
+  perspective-origin: 52% 42%;
+}
+.iso-stack {
+  position: relative;
+  width: 300px;
+  height: 186px;
+  transform-style: preserve-3d;
+  transform: rotateX(56deg) rotateZ(-42deg);
+}
+.iso-idle {
+  animation: iso-bob 7s ease-in-out infinite alternate;
+}
+@keyframes iso-bob {
+  from { transform: rotateX(56deg) rotateZ(-42deg) translateZ(0); }
+  to   { transform: rotateX(56deg) rotateZ(-42deg) translateZ(18px); }
+}
+.iso-plate {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+.iso-plate-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #221a11, #14100b);
+  border: 1px solid rgba(227, 181, 102, 0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 0 0 1px rgba(240, 231, 214, 0.03),
+    0 26px 44px -24px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+}
+.iso-plate-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background: repeating-linear-gradient(
+    118deg,
+    rgba(255, 255, 255, 0.025) 0 2px,
+    transparent 2px 8px
+  );
+}
+.iso-base-face {
+  position: absolute;
+  inset: -6px;
+  border-radius: 20px;
+  background: radial-gradient(62% 62% at 50% 50%, rgba(227, 181, 102, 0.24), #14100b 72%);
+  border: 1px solid rgba(227, 181, 102, 0.5);
+  box-shadow:
+    0 0 60px -6px rgba(227, 181, 102, 0.4),
+    inset 0 0 34px rgba(227, 181, 102, 0.16);
+}
+.iso-shadow {
+  position: absolute;
+  left: 50%;
+  top: 64%;
+  width: 320px;
+  height: 200px;
+  transform: translate(-50%, -50%) rotateX(56deg) rotateZ(-42deg);
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.6), transparent 72%);
+  filter: blur(14px);
+}
+
+/*
+ * Prose — blog + legal. Neo-serif headings, gold links, mono code, warm tables.
+ */
+.prose {
+  color: var(--color-body);
+  line-height: 1.78;
+  font-size: 1.075rem;
+  max-width: 44rem;
+}
+.prose > * + * { margin-top: 1.3rem; }
+.prose h1 {
+  font-size: clamp(2rem, 4.4vw, 2.9rem);
+  line-height: 1.08;
+  margin: 0 0 0.5rem;
+}
+.prose h2 {
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin-top: 3rem;
+  margin-bottom: 0.4rem;
+}
+.prose h3 { font-size: 1.3rem; margin-top: 2.2rem; }
+.prose p, .prose li { color: var(--color-body); }
+.prose a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(227, 181, 102, 0.45);
+}
+.prose a:hover { text-decoration-color: var(--color-accent); }
+.prose strong { color: var(--color-headline); font-weight: 600; }
+.prose ul, .prose ol { padding-left: 1.4rem; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li { margin-top: 0.4rem; }
+.prose li::marker { color: var(--color-accent); }
+.prose blockquote {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1.2rem;
+  color: var(--color-muted);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: rgba(240, 231, 214, 0.05);
+  border: 1px solid var(--hairline);
+  padding: 0.12em 0.4em;
+  border-radius: 5px;
+  color: var(--color-headline);
+}
+.prose pre {
+  font-family: var(--font-mono);
+  background: #100d0a;
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 1.15rem 1.3rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+.prose pre code { background: transparent; border: 0; padding: 0; color: var(--color-body); }
+.prose hr { border: 0; border-top: 1px solid var(--hairline); margin-block: 2.6rem; }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.95rem; display: block; overflow-x: auto; }
+.prose th, .prose td { border: 1px solid var(--hairline); padding: 0.6rem 0.85rem; text-align: left; }
+.prose th { color: var(--color-headline); font-weight: 600; background: rgba(240, 231, 214, 0.03); }
+.prose em { color: var(--color-muted); font-family: var(--font-display); }
+
+/* Reduced motion — instant, no transforms, grain/ambient frozen. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
