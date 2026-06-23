@@ -29,7 +29,7 @@ export const site = {
   // The engineer in charge of the division (named on /about for trust + E-E-A-T).
   lead: {
     name: "Soumik Ghosh",
-    role: "Principal engineer & practice lead",
+    role: "Engineer & practice lead",
     linkedin: "https://linkedin.com/in/soumik15630m",
   },
   // Used as og:locale and html lang.

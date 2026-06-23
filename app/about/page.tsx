@@ -68,9 +68,9 @@ export default function AboutPage() {
         <Reveal delay={0.3}>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-body/90">
             House of STK is an independent engineering practice. LLM Cost Audit is
-            its inference-cost division — built on one observation from years of
-            low-level performance work: an LLM bill is an engineering artifact,
-            not a fixed cost.
+            its inference-cost division — built on one plain observation: an LLM
+            bill is an engineering problem, not a fixed cost. It runs into real
+            money, and someone has to sit down and fix it.
           </p>
         </Reveal>
       </Section>
@@ -142,7 +142,7 @@ export default function AboutPage() {
       {/* Who's in charge */}
       <Section className="border-t border-[var(--hairline)]">
         <Reveal>
-          <p className="eyebrow">Who&apos;s in charge</p>
+          <p className="eyebrow">Who runs the audits</p>
         </Reveal>
         <Reveal delay={0.1}>
           <div className="card mt-6 flex flex-col gap-7 p-7 sm:flex-row sm:items-center sm:p-9">
@@ -164,10 +164,13 @@ export default function AboutPage() {
                 {site.lead.role}
               </p>
               <p className="mt-4 max-w-xl text-[1.02rem] leading-relaxed text-body/90">
-                A performance and systems engineer who spent years optimizing at
-                the compiler and systems level — the same instinct, now applied
-                to inference cost. He runs every audit personally, from the usage
-                export to the dollar math in the report.
+                I run the audits here — every one, end to end. My background is in
+                systems and performance engineering; this is the same work,
+                pointed at inference cost. LLM bills get expensive in a handful of
+                predictable ways, and most teams are too busy shipping to chase
+                them down. That&apos;s the part I handle: find where the spend
+                leaks, fix it without changing what your users see, and show the
+                math against your own invoices.
               </p>
               <Magnetic strength={8}>
                 <a
