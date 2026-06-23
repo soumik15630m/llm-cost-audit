@@ -27,8 +27,26 @@
  */
 import { site } from "@/lib/site";
 import { neon } from "@neondatabase/serverless";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 
 export const runtime = "edge";
+
+/**
+ * Per-IP rate limiting (Upstash Redis) — prevents abuse of this endpoint:
+ * inbox/email bombing, Resend-quota exhaustion, and junk DB rows. Skipped if the
+ * env vars aren't set (form still works), but it should be enabled in production.
+ * 5 requests per 10 minutes per IP is generous for real users, tight for abuse.
+ */
+const ratelimit =
+  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+    ? new Ratelimit({
+        redis: Redis.fromEnv(),
+        limiter: Ratelimit.slidingWindow(5, "10 m"),
+        prefix: "ratelimit:contact",
+        analytics: false,
+      })
+    : null;
 
 type Payload = {
   name?: string;
@@ -130,6 +148,23 @@ export async function POST(req: Request) {
   // Silently accept (and drop) bot submissions that trip the honeypot.
   if (clean(body.company_website)) return Response.json({ ok: true });
 
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
+    "";
+  const ua = req.headers.get("user-agent") || "";
+
+  // Rate limit per IP before doing any work (email / DB).
+  if (ratelimit) {
+    const { success } = await ratelimit.limit(ip || "anonymous");
+    if (!success) {
+      return Response.json(
+        { ok: false, error: "Too many requests — please try again later." },
+        { status: 429 }
+      );
+    }
+  }
+
   const name = clean(body.name, 120);
   const email = clean(body.email, 200);
   const company = clean(body.company, 160);
@@ -149,11 +184,6 @@ export async function POST(req: Request) {
 
   // Record the consent (name/email/company/spend + time, IP, user agent) to Neon.
   // Runs in parallel with email delivery; awaited before responding.
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    req.headers.get("x-real-ip") ||
-    "";
-  const ua = req.headers.get("user-agent") || "";
   const consentLog = logConsent({ name, email, company, spend, ip, ua });
 
   const key = process.env.RESEND_API_KEY;
