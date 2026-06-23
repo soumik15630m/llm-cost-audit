@@ -74,8 +74,8 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
-  // FOUNDER-FILL: paste your Google Search Console verification token here.
-  // verification: { google: "your-token" },
+  // Google Search Console verification.
+  verification: { google: "-PUsrcvH44YhFMrUcvofLUIb84Q5gwkT63ngHbfCWT8" },
 };
 
 export const viewport: Viewport = {
