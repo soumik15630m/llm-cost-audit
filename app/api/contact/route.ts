@@ -52,6 +52,7 @@ type Email = {
   text: string;
   html: string;
   replyTo?: string;
+  headers?: Record<string, string>;
 };
 
 type ConsentRecord = {
@@ -107,6 +108,7 @@ async function sendEmail(key: string, from: string, mail: Email): Promise<boolea
         subject: mail.subject,
         text: mail.text,
         html: mail.html,
+        headers: mail.headers,
       }),
     });
     if (!res.ok) console.log("[contact] resend error", res.status, await res.text());
@@ -200,6 +202,11 @@ export async function POST(req: Request) {
       slackBtn +
       `<p style="color:#6b645a">Talk soon,<br/>${esc(site.name)}</p>` +
       `</div>`,
+    // One-time confirmation, but include an unsubscribe path for good standing
+    // with Gmail/Yahoo and a clean deliverability score.
+    headers: {
+      "List-Unsubscribe": `<mailto:${founderTo || site.contactEmail}?subject=unsubscribe>`,
+    },
   };
 
   // 2) Notification to you ("they just joined").
