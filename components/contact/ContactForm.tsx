@@ -77,9 +77,17 @@ export default function ContactForm() {
     );
   }
 
-  const inputClass =
-    "w-full rounded-lg border border-[var(--hairline-strong)] bg-[#100d0a] px-4 py-3 text-body placeholder:text-muted/70 transition-colors focus:border-[rgba(227,181,102,0.6)] focus:outline-none";
   const showError = (invalid: boolean) => touched && invalid;
+  const baseInput =
+    "w-full rounded-lg border bg-[#100d0a] px-4 py-3 text-body placeholder:text-muted/70 transition-colors focus:outline-none";
+  // Gold border + focus on invalid fields once the user has tried to submit.
+  const fieldClass = (invalid: boolean) =>
+    `${baseInput} ${
+      showError(invalid)
+        ? "border-accent focus:border-accent"
+        : "border-[var(--hairline-strong)] focus:border-[rgba(227,181,102,0.6)]"
+    }`;
+  const errorText = "mt-1.5 text-xs text-accent";
 
   return (
     <div className="card p-6 sm:p-8">
@@ -94,10 +102,11 @@ export default function ContactForm() {
             autoComplete="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className={inputClass}
+            className={fieldClass(name.trim() === "")}
             placeholder="Jane Doe"
             aria-invalid={showError(name.trim() === "")}
           />
+          {showError(name.trim() === "") && <p className={errorText}>Enter your name.</p>}
         </div>
 
         <div>
@@ -110,12 +119,14 @@ export default function ContactForm() {
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={inputClass}
+            className={fieldClass(!emailValid)}
             placeholder="jane@company.com"
             aria-invalid={showError(!emailValid)}
           />
           {showError(!emailValid) && (
-            <p className="mt-1.5 text-xs text-accent">Enter a valid work email.</p>
+            <p className={errorText}>
+              {email.trim() === "" ? "Enter your work email." : "Enter a valid work email."}
+            </p>
           )}
         </div>
 
@@ -129,10 +140,13 @@ export default function ContactForm() {
             autoComplete="organization"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
-            className={inputClass}
+            className={fieldClass(company.trim() === "")}
             placeholder="Acme AI"
             aria-invalid={showError(company.trim() === "")}
           />
+          {showError(company.trim() === "") && (
+            <p className={errorText}>Enter your company name.</p>
+          )}
         </div>
 
         <div>
@@ -143,7 +157,7 @@ export default function ContactForm() {
             id="spend"
             value={spend}
             onChange={(e) => setSpend(e.target.value)}
-            className={`${inputClass} ${spend === "" ? "text-muted/70" : ""}`}
+            className={`${fieldClass(spend === "")} ${spend === "" ? "text-muted/70" : ""}`}
             aria-invalid={showError(spend === "")}
           >
             <option value="" disabled>
@@ -155,6 +169,9 @@ export default function ContactForm() {
               </option>
             ))}
           </select>
+          {showError(spend === "") && (
+            <p className={errorText}>Select your approximate monthly spend.</p>
+          )}
         </div>
 
         {/* Honeypot — hidden from users; bots that fill it are silently dropped. */}
@@ -218,6 +235,12 @@ export default function ContactForm() {
         >
           {status === "submitting" ? "Sending…" : "Request an assessment"}
         </button>
+
+        {touched && !formValid && status !== "submitting" && (
+          <p className="text-center text-xs text-accent" role="alert">
+            Please complete all fields above before requesting an assessment.
+          </p>
+        )}
 
         {status === "error" && (
           <p className="text-sm text-accent" role="alert">
