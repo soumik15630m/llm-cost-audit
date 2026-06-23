@@ -38,10 +38,14 @@ export const runtime = "edge";
  * env vars aren't set (form still works), but it should be enabled in production.
  * 5 requests per 10 minutes per IP is generous for real users, tight for abuse.
  */
+// Accept either Upstash-native or Vercel-integration env var names.
+const redisUrl = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+const redisToken =
+  process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
 const ratelimit =
-  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+  redisUrl && redisToken
     ? new Ratelimit({
-        redis: Redis.fromEnv(),
+        redis: new Redis({ url: redisUrl, token: redisToken }),
         limiter: Ratelimit.slidingWindow(5, "10 m"),
         prefix: "ratelimit:contact",
         analytics: false,
