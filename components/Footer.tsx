@@ -6,6 +6,7 @@ const footerNav = {
   Practice: [
     { href: "/pricing", label: "Pricing" },
     { href: "/resources", label: "Sample audit" },
+    { href: "/about", label: "About" },
     { href: "/contact", label: "Book an assessment" },
   ],
   Writing: [

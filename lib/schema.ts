@@ -10,6 +10,21 @@ import { site, absoluteUrl } from "./site";
 const ORG_ID = `${site.url}/#organization`;
 const SERVICE_ID = `${site.url}/#service`;
 const WEBSITE_ID = `${site.url}/#website`;
+const LEAD_ID = `${site.url}/#lead`;
+
+/** The engineer in charge — Person entity with LinkedIn sameAs (E-E-A-T). */
+export function personSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": LEAD_ID,
+    name: site.lead.name,
+    jobTitle: site.lead.role,
+    url: absoluteUrl("/about"),
+    sameAs: [site.lead.linkedin],
+    worksFor: { "@id": ORG_ID },
+  };
+}
 
 /** Organization + ProfessionalService — emitted sitewide in the root layout. */
 export function organizationSchema() {
@@ -31,6 +46,7 @@ export function organizationSchema() {
       name: site.studio.name,
       url: site.studio.url,
     },
+    founder: { "@type": "Person", "@id": LEAD_ID, name: site.lead.name },
     knowsAbout: [
       "LLM cost optimization",
       "Inference cost",

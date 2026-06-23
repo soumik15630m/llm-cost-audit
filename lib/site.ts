@@ -26,6 +26,12 @@ export const site = {
   contactEmail: "hello@houseofstk.com",
   // The single audit price, surfaced in copy and Service JSON-LD.
   assessmentPriceUSD: 750,
+  // The engineer in charge of the division (named on /about for trust + E-E-A-T).
+  lead: {
+    name: "Soumik Ghosh",
+    role: "Principal engineer & practice lead",
+    linkedin: "https://linkedin.com/in/soumik15630m",
+  },
   // Used as og:locale and html lang.
   locale: "en_US",
   lang: "en",
