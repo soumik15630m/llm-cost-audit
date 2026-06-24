@@ -42,7 +42,7 @@ export default function Footer() {
           </p>
           <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] px-3 py-1 text-xs text-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-            Founding cohort — now booking
+            Now booking assessments
           </p>
         </div>
 

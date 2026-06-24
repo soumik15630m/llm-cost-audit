@@ -281,15 +281,15 @@ export default function HomePage() {
             />
             <p className="relative inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] px-3 py-1 text-xs text-muted">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-              Founding cohort
+              Now booking assessments
             </p>
             <h2 className="relative mx-auto mt-6 max-w-2xl text-3xl font-medium tracking-tight sm:text-[2.8rem] sm:leading-[1.06]">
-              Now booking the first assessments.
+              Put a real number on it.
             </h2>
             <p className="relative mx-auto mt-5 max-w-xl text-lg text-muted">
-              No fabricated logos, no manufactured case studies — just early,
-              hands-on engagements at a fixed price. Send a usage export and find
-              out where your number actually sits.
+              No fabricated logos, no manufactured case studies — just hands-on
+              engagements at a fixed price. Send a usage export and find out where
+              your number actually sits.
             </p>
             <div className="relative mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Magnetic>
