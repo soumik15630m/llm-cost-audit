@@ -1,7 +1,7 @@
 import type { StackLayer } from "./stack-data";
 
 /**
- * The face of a single "context layer" plate — a brushed-metal / PCB card with
+ * The face of a single "context layer" plate - a brushed-metal / PCB card with
  * an engraved mono label, the leak's current cost, and a small circuit detail.
  * Presentational only; positioning + 3D transforms are applied by the parent.
  * Text sits in the isometric plane (engraved-on-the-board look); the fully

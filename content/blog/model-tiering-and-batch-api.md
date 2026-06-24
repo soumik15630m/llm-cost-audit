@@ -8,7 +8,7 @@ tags: ["model selection", "batch api", "llm cost optimization", "anthropic", "op
 
 # Stop Paying Opus Prices for Haiku Work: Model Tiering and the Batch API
 
-After caching, the next two levers I reach for in a cost audit are the simplest to explain and among the most over-looked: **use the cheapest model that does the job**, and **run async work through the Batch API.** Stacked together, they routinely cut a workload's cost by 90% — with the output quality unchanged.
+After caching, the next two levers I reach for in a cost audit are the simplest to explain and among the most over-looked: **use the cheapest model that does the job**, and **run async work through the Batch API.** Stacked together, they routinely cut a workload's cost by 90% - with the output quality unchanged.
 
 Here's why, with the math.
 
@@ -16,9 +16,9 @@ Here's why, with the math.
 
 Most providers offer a tiered lineup. On Anthropic in 2026, roughly:
 
-- **Haiku** — ~$1 / $5 per million input/output tokens
-- **Sonnet** — ~$3 / $15
-- **Opus** — ~$5 / $25
+- **Haiku** - ~$1 / $5 per million input/output tokens
+- **Sonnet** - ~$3 / $15
+- **Opus** - ~$5 / $25
 
 The top tier costs 5× the bottom on input and 5× on output. That premium is worth it for genuinely hard reasoning. It is pure waste for the work that makes up most of a real application: classification, extraction, routing, tagging, formatting, short summaries, intent detection.
 
@@ -28,7 +28,7 @@ The mistake I see constantly is a single frontier model wired into *every* call,
 
 ## Lever two: the Batch API
 
-Both major providers offer a **Batch API that discounts input *and* output by 50%** for work that can tolerate a few hours of latency. The discount is automatic and carries no quality trade-off — same model, same output, half the price.
+Both major providers offer a **Batch API that discounts input *and* output by 50%** for work that can tolerate a few hours of latency. The discount is automatic and carries no quality trade-off - same model, same output, half the price.
 
 The catch is only latency. So it's perfect for anything asynchronous:
 
@@ -42,7 +42,7 @@ Plenty of teams run all of this at full real-time price simply because it was ea
 
 ## Stacking them
 
-The levers multiply. Take a classification workload — say 50 million input and 10 million output tokens a month — that's currently running on the top tier, synchronously:
+The levers multiply. Take a classification workload - say 50 million input and 10 million output tokens a month - that's currently running on the top tier, synchronously:
 
 ```
 Opus, real-time:   50M×$5/M + 10M×$25/M   = $250 + $250 = $500/month
@@ -50,7 +50,7 @@ Haiku, real-time:  50M×$1/M + 10M×$5/M    =  $50 +  $50 = $100/month   (5× ch
 Haiku + Batch:     $100 × 0.5             =              $50/month   (10× cheaper)
 ```
 
-*(Illustrative figures.)* The same classification job, producing the same labels, drops from **$500 to $50 a month** — a 90% cut — by routing it to the right tier and batching it. No model retraining, no quality loss, no architecture rewrite. Just sending the work to the right place.
+*(Illustrative figures.)* The same classification job, producing the same labels, drops from **$500 to $50 a month** - a 90% cut - by routing it to the right tier and batching it. No model retraining, no quality loss, no architecture rewrite. Just sending the work to the right place.
 
 And on Anthropic, because caching also stacks with Batch, a high-volume job with repeated context can layer all three discounts at once.
 
@@ -65,9 +65,9 @@ Most applications have a small core of hard, urgent calls and a large tail of ea
 
 ## The point
 
-Model tiering and batching are the least glamorous levers in cost optimization and two of the most effective. They don't require touching model quality, prompts, or product behavior — only deciding, per call, how hard and how urgent the work actually is, and pricing it accordingly. For most teams that one audit pass over "which calls go where" is worth a large fraction of the bill.
+Model tiering and batching are the least glamorous levers in cost optimization and two of the most effective. They don't require touching model quality, prompts, or product behavior - only deciding, per call, how hard and how urgent the work actually is, and pricing it accordingly. For most teams that one audit pass over "which calls go where" is worth a large fraction of the bill.
 
-A usage export shows exactly which calls are over-tiered and which async work is running hot — which is the first thing an assessment maps out.
+A usage export shows exactly which calls are over-tiered and which async work is running hot - which is the first thing an assessment maps out.
 
 ---
 

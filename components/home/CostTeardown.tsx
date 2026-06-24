@@ -126,7 +126,7 @@ function Caption({
         {layer.why}
       </p>
       <p className="tabular mt-3 text-sm font-semibold text-accent">
-        {layer.saved ? `${layer.saved}/mo recovered` : "Capped — $0 now, real money later"}
+        {layer.saved ? `${layer.saved}/mo recovered` : "Capped - $0 now, real money later"}
       </p>
     </motion.div>
   );
@@ -145,7 +145,7 @@ function Outro({ progress }: { progress: MotionValue<number> }) {
         cost.
       </h3>
       <p className="mt-2 max-w-md text-[0.95rem] leading-relaxed text-body/80">
-        From {formatUSD(METER_START)} to {formatUSD(METER_END)}/mo on the sample —
+        From {formatUSD(METER_START)} to {formatUSD(METER_END)}/mo on the sample -
         measured against your own invoices, line by line.
       </p>
       <Magnetic>
@@ -163,13 +163,13 @@ function StaticLeaks({ className = "" }: { className?: string }) {
   return (
     <section className={className}>
       <div className="container-page py-20 sm:py-28">
-        <p className="eyebrow">Fig. 01 — Where it leaks</p>
+        <p className="eyebrow">Fig. 01 - Where it leaks</p>
         <h2 className="mt-5 max-w-2xl text-3xl font-medium tracking-tight sm:text-[2.6rem] sm:leading-[1.08]">
-          Inaction isn&apos;t free. It bleeds — on every call.
+          Inaction isn&apos;t free. It bleeds - on every call.
         </h2>
         <p className="mt-5 max-w-xl text-lg text-muted">
           The audit tears the context stack apart layer by layer. Each one is a
-          leak you pay for on every request — and recover once it&apos;s fixed.
+          leak you pay for on every request - and recover once it&apos;s fixed.
         </p>
 
         <ul className="mt-12 border-t border-[var(--hairline)]">
@@ -243,7 +243,7 @@ export default function CostTeardown() {
           <div className="container-page grid w-full grid-cols-[1fr_1fr] items-center gap-12">
             {/* HUD column */}
             <div>
-              <p className="eyebrow">Fig. 01 — Where it leaks</p>
+              <p className="eyebrow">Fig. 01 - Where it leaks</p>
               <h2 className="mt-4 max-w-md text-3xl font-medium tracking-tight sm:text-[2.4rem] sm:leading-[1.08]">
                 Watch the bill come apart, layer by layer.
               </h2>

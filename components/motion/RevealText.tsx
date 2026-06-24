@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 
 /**
  * Line-mask headline reveal: each line rises from behind an overflow-clip with
- * a staggered spring — the signature premium hero animation. Pass the headline
+ * a staggered spring - the signature premium hero animation. Pass the headline
  * pre-split into visual lines. Reduced-motion shows them instantly.
  */
 export default function RevealText({

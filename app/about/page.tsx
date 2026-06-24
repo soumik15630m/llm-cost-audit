@@ -10,16 +10,16 @@ import { personSchema, breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About — the engineering behind LLM Cost Audit",
+  title: "About - the engineering behind LLM Cost Audit",
   description:
-    "LLM Cost Audit is the inference-cost division of House of STK — an engineering-led practice that treats your LLM bill as an optimization problem, not a fixed cost.",
+    "LLM Cost Audit is the inference-cost division of House of STK - an engineering-led practice that treats your LLM bill as an optimization problem, not a fixed cost.",
   alternates: { canonical: "/about" },
 };
 
 const principles = [
   {
     title: "Unit cost, not the bill",
-    body: "We measure cost per 1,000 calls (or per conversation, or per user) on a fixed sample, before and after — the only number that separates real efficiency from usage growth, and the only one we bill savings on.",
+    body: "We measure cost per 1,000 calls (or per conversation, or per user) on a fixed sample, before and after - the only number that separates real efficiency from usage growth, and the only one we bill savings on.",
   },
   {
     title: "No quality trade-offs",
@@ -27,7 +27,7 @@ const principles = [
   },
   {
     title: "Confidential by default",
-    body: "A mutual NDA is signed before any data is shared. Your identity, usage, and numbers stay private, and the client list is never disclosed — to anyone.",
+    body: "A mutual NDA is signed before any data is shared. Your identity, usage, and numbers stay private, and the client list is never disclosed - to anyone.",
   },
   {
     title: "Priced on results",
@@ -51,7 +51,7 @@ export default function AboutPage() {
       {/* Hero */}
       <Section className="pb-8">
         <Reveal>
-          <p className="eyebrow">Fig. — About</p>
+          <p className="eyebrow">Fig. - About</p>
         </Reveal>
         <RevealText
           as="h1"
@@ -68,7 +68,7 @@ export default function AboutPage() {
         <Reveal delay={0.3}>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-body/90">
             House of STK is an independent engineering practice. LLM Cost Audit is
-            its inference-cost division — built on one plain observation: an LLM
+            its inference-cost division - built on one plain observation: an LLM
             bill is an engineering problem, not a fixed cost. It runs into real
             money, and someone has to sit down and fix it.
           </p>
@@ -88,14 +88,14 @@ export default function AboutPage() {
             <div className="space-y-5 text-lg leading-relaxed text-body/90">
               <p>
                 The model price is the part everyone looks at and the part that
-                matters least. The money is made elsewhere — in the prefix you
+                matters least. The money is made elsewhere - in the prefix you
                 re-send on every call, the frontier model running work a cheaper
                 tier handles identically, the async jobs paying real-time rates,
                 the context that grows unbounded.
               </p>
               <p>
                 That&apos;s the same class of inefficiency a systems engineer
-                hunts in a hot loop — only here it&apos;s sitting in plain sight
+                hunts in a hot loop - only here it&apos;s sitting in plain sight
                 on a monthly invoice. We started this division to point that
                 discipline at token spend:{" "}
                 <span className="text-headline">
@@ -105,7 +105,7 @@ export default function AboutPage() {
               </p>
               <p className="text-muted">
                 Every engagement is run hands-on. No junior hand-off, no generic
-                script — the analysis is done by the engineer whose name is on it.
+                script - the analysis is done by the engineer whose name is on it.
               </p>
             </div>
           </Reveal>
@@ -164,7 +164,7 @@ export default function AboutPage() {
                 {site.lead.role}
               </p>
               <blockquote className="mt-4 max-w-xl border-l-2 border-accent pl-5 text-[1.02rem] leading-relaxed text-body/90">
-                &ldquo;We run every audit hands-on, end to end — systems and
+                &ldquo;We run every audit hands-on, end to end - systems and
                 performance engineering, pointed at inference cost. LLM bills get
                 expensive in a handful of predictable ways, and most teams are too
                 busy shipping to chase them down. That&apos;s what we handle: find
@@ -194,7 +194,7 @@ export default function AboutPage() {
             </span>
             <p className="text-[0.95rem] leading-relaxed text-body/85">
               Naming the person in charge cuts both ways: you know exactly who
-              handles your data — and that same person is bound by the mutual NDA
+              handles your data - and that same person is bound by the mutual NDA
               that keeps your identity, usage, and numbers private. Discretion
               isn&apos;t a policy here; it&apos;s the product.{" "}
               <Link href="/nda" className="link-a">
@@ -219,7 +219,7 @@ export default function AboutPage() {
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
               A $750 assessment turns your usage export into a line-by-line
-              findings report — run by the engineer above, confidential under NDA.
+              findings report - run by the engineer above, confidential under NDA.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Magnetic>

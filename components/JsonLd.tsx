@@ -10,7 +10,7 @@ export default function JsonLd({ data }: { data: object | object[] }) {
         <script
           key={i}
           type="application/ld+json"
-          // Schema is fully controlled by us (no user input) — safe to inline.
+          // Schema is fully controlled by us (no user input) - safe to inline.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}

@@ -7,7 +7,7 @@ import { getLegalDoc } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "Mutual NDA",
   description:
-    "The mutual non-disclosure agreement signed before any usage data is shared. Your identity, usage, and numbers stay private — and so does the client list.",
+    "The mutual non-disclosure agreement signed before any usage data is shared. Your identity, usage, and numbers stay private - and so does the client list.",
   alternates: { canonical: "/nda" },
 };
 
@@ -36,7 +36,7 @@ export default function NdaPage() {
               rel="noopener noreferrer"
               className="btn-ghost mt-4 text-sm"
             >
-              <Download size={16} /> Open the NDA — print or save as PDF
+              <Download size={16} /> Open the NDA - print or save as PDF
             </a>
           )}
         </div>

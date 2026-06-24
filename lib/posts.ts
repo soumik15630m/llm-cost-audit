@@ -75,7 +75,7 @@ export function getPostBySlug(slug: string): Post | undefined {
 export type LegalDoc = {
   title: string;
   content: string;
-  /** True when no source file exists — page renders a clear placeholder. */
+  /** True when no source file exists - page renders a clear placeholder. */
   pending: boolean;
   /** Path to the raw source file under /content (for download links). */
   sourceFile: string;
@@ -84,7 +84,7 @@ export type LegalDoc = {
 /**
  * Load a legal document by name (privacy | terms | nda). If the founder hasn't
  * supplied the file yet, return a clearly-marked placeholder and keep the build
- * passing — never invent legal text.
+ * passing - never invent legal text.
  */
 export function getLegalDoc(name: "privacy" | "terms" | "nda", title: string): LegalDoc {
   const file = path.join(LEGAL_DIR, `${name}.md`);
@@ -105,11 +105,11 @@ export function getLegalDoc(name: "privacy" | "terms" | "nda", title: string): L
       content: [
         `# ${title}`,
         "",
-        "> **CONTENT PENDING — founder to supply.**",
+        "> **CONTENT PENDING - founder to supply.**",
         "",
         `This document has not been provided yet. Drop the finished Markdown at \`content/legal/${name}.md\` and it will render here automatically, with no code changes.`,
         "",
-        "Until then, no placeholder legal text is shown, because legal terms must be written by the founder — not generated.",
+        "Until then, no placeholder legal text is shown, because legal terms must be written by the founder - not generated.",
       ].join("\n"),
     };
   }

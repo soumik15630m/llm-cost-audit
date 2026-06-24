@@ -11,18 +11,18 @@ import { ArrowRight, ArrowUpRight, IconLock } from "@/components/icons";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Cut your LLM bill 40–70% | Independent inference cost audit",
+  title: "Cut your LLM bill 40-70% | Independent inference cost audit",
   description:
-    "Your OpenAI / Anthropic bill is likely 40–70% larger than it needs to be. A $750 assessment finds exactly where inference spend leaks — with the dollar math, line by line.",
+    "Your OpenAI / Anthropic bill is likely 40-70% larger than it needs to be. A $750 assessment finds exactly where inference spend leaks - with the dollar math, line by line.",
   alternates: { canonical: "/" },
 };
 
-// §5.3 — the method.
+// §5.3 - the method.
 const steps = [
   {
     n: "1",
     title: "Send a usage export",
-    body: "After a mutual NDA, you send a usage export from your provider dashboard — not your data, not your prompts. The $750 assessment begins.",
+    body: "After a mutual NDA, you send a usage export from your provider dashboard - not your data, not your prompts. The $750 assessment begins.",
   },
   {
     n: "2",
@@ -32,7 +32,7 @@ const steps = [
   {
     n: "3",
     title: "Optional implementation",
-    body: "If you want the changes made, implementation is priced on results — a flat fee or a share of verified per-unit savings, whichever applies.",
+    body: "If you want the changes made, implementation is priced on results - a flat fee or a share of verified per-unit savings, whichever applies.",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function HomePage() {
         <div className="container-page relative z-10 grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.08fr_0.92fr] lg:py-32">
           <div>
             <Reveal>
-              <p className="eyebrow">Fig. 00 — Inference cost audits</p>
+              <p className="eyebrow">Fig. 00 - Inference cost audits</p>
             </Reveal>
 
             <RevealText
@@ -55,7 +55,7 @@ export default function HomePage() {
               lines={[
                 "Your LLM bill is",
                 <span key="a" className="italic text-accent">
-                  40–70% larger
+                  40-70% larger
                 </span>,
                 "than it needs to be.",
               ]}
@@ -64,8 +64,8 @@ export default function HomePage() {
             <Reveal delay={0.35}>
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-body/90">
                 An independent audit of your OpenAI / Anthropic usage that finds
-                exactly where the money leaks — uncached prompts, over-powered
-                models, missing batch jobs, bloated context — and hands you the
+                exactly where the money leaks - uncached prompts, over-powered
+                models, missing batch jobs, bloated context - and hands you the
                 dollar math to recover it.
               </p>
             </Reveal>
@@ -104,7 +104,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ───── 5.2 THE COST OF NOT AUDITING — scroll-teardown centerpiece ───── */}
+      {/* ───── 5.2 THE COST OF NOT AUDITING - scroll-teardown centerpiece ───── */}
       {/* Replaces the boxy leak-card grid: a pinned, scroll-scrubbed isometric
           stack that lifts each leak off the bill. Mobile + reduced-motion fall
           back to a de-boxed editorial list (see CostTeardown). */}
@@ -113,13 +113,13 @@ export default function HomePage() {
       {/* ─────────────────── 5.3 HOW I MITIGATE IT ─────────────────── */}
       <Section className="border-y border-[var(--hairline)] bg-ink-2">
         <Reveal>
-          <p className="eyebrow">Fig. 02 — The method</p>
+          <p className="eyebrow">Fig. 02 - The method</p>
           <h2 className="mt-5 max-w-2xl text-3xl font-medium tracking-tight sm:text-[2.6rem]">
             How the audit works
           </h2>
           <p className="mt-5 max-w-2xl text-lg text-muted">
             One fixed-price pass over your real usage, turned into a report you
-            can act on — or hand to your own engineers.
+            can act on - or hand to your own engineers.
           </p>
         </Reveal>
 
@@ -153,7 +153,7 @@ export default function HomePage() {
               <p className="eyebrow">The practice</p>
               <p className="mt-3 max-w-2xl text-lg text-body">
                 An engineering-led practice from a low-level performance
-                background — the same discipline used to squeeze compilers and
+                background - the same discipline used to squeeze compilers and
                 systems, pointed at token spend.{" "}
                 <span className="text-muted">
                   Every audit is hands-on, fixed-price, and verified against your
@@ -184,7 +184,7 @@ export default function HomePage() {
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--hairline-strong)] text-accent">
               <IconLock size={22} />
             </span>
-            <p className="eyebrow mt-6">Fig. 03 — Confidentiality</p>
+            <p className="eyebrow mt-6">Fig. 03 - Confidentiality</p>
             <h2 className="mt-5 text-3xl font-medium tracking-tight sm:text-[2.6rem] sm:leading-[1.08]">
               Discretion isn&apos;t a policy here. It&apos;s the product.
             </h2>
@@ -194,11 +194,11 @@ export default function HomePage() {
               <p>
                 A mutual NDA is signed before any data is shared. Your identity,
                 your usage, and your numbers stay private. The client list is
-                never disclosed — not on this site, not to other prospects, not
+                never disclosed - not on this site, not to other prospects, not
                 in conversation.
               </p>
               <blockquote className="border-l-2 border-accent pl-5 font-[family-name:var(--font-display)] text-2xl italic leading-snug text-headline">
-                &ldquo;Your competitor might be a client — and you&apos;d never
+                &ldquo;Your competitor might be a client - and you&apos;d never
                 know. That&apos;s exactly the protection you get.&rdquo;
               </blockquote>
               <p className="text-muted">
@@ -219,13 +219,13 @@ export default function HomePage() {
       <Section className="border-y border-[var(--hairline)] bg-ink-2">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
           <Reveal>
-            <p className="eyebrow">Fig. 04 — Implementation &amp; guarantee</p>
+            <p className="eyebrow">Fig. 04 - Implementation &amp; guarantee</p>
             <h2 className="mt-5 text-3xl font-medium tracking-tight sm:text-[2.6rem] sm:leading-[1.08]">
               Priced on results you can verify against your own invoices.
             </h2>
             <p className="mt-5 text-lg text-muted">
               The assessment stands alone. If you want the fixes made,
-              implementation is a flat fee or a share of verified savings —
+              implementation is a flat fee or a share of verified savings -
               whichever applies. If the agreed savings aren&apos;t achieved, the
               savings-based fee isn&apos;t owed.
             </p>
@@ -242,8 +242,8 @@ export default function HomePage() {
               </h3>
               <p className="mt-5 leading-relaxed text-body/90">
                 Savings are measured as{" "}
-                <span className="text-accent">unit cost</span> — cost per 1,000
-                calls (or per conversation, or per user) — on a{" "}
+                <span className="text-accent">unit cost</span> - cost per 1,000
+                calls (or per conversation, or per user) - on a{" "}
                 <span className="text-headline">
                   fixed, agreed sample of your traffic
                 </span>
@@ -287,7 +287,7 @@ export default function HomePage() {
               Put a real number on it.
             </h2>
             <p className="relative mx-auto mt-5 max-w-xl text-lg text-muted">
-              No fabricated logos, no manufactured case studies — just hands-on
+              No fabricated logos, no manufactured case studies - just hands-on
               engagements at a fixed price. Send a usage export and find out where
               your number actually sits.
             </p>

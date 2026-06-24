@@ -6,7 +6,7 @@ import { getLegalDoc } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The terms governing LLM Cost Audit engagements — the $750 assessment, optional implementation, and how verified per-unit savings are defined.",
+    "The terms governing LLM Cost Audit engagements - the $750 assessment, optional implementation, and how verified per-unit savings are defined.",
   alternates: { canonical: "/terms" },
 };
 

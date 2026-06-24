@@ -10,7 +10,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { organizationSchema, serviceSchema, webSiteSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
-// Self-hosted via next/font — no layout shift, no external request.
+// Self-hosted via next/font - no layout shift, no external request.
 // Neo-serif display + grotesque body + mono data: the editorial pairing.
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -38,7 +38,7 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "LLM Cost Audit — Cut your OpenAI / Anthropic bill 40–70%",
+    default: "LLM Cost Audit - Cut your OpenAI / Anthropic bill 40-70%",
     template: `%s | ${site.name}`,
   },
   description: site.shortDescription,
@@ -60,12 +60,12 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: site.locale,
     url: site.url,
-    title: "LLM Cost Audit — Cut your OpenAI / Anthropic bill 40–70%",
+    title: "LLM Cost Audit - Cut your OpenAI / Anthropic bill 40-70%",
     description: site.shortDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLM Cost Audit — Cut your OpenAI / Anthropic bill 40–70%",
+    title: "LLM Cost Audit - Cut your OpenAI / Anthropic bill 40-70%",
     description: site.shortDescription,
   },
   robots: {
@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Lenis inertial smooth scroll (reduced-motion aware) */}
         <SmoothScroll />
 
-        {/* Film grain over everything — crafted, not rendered. */}
+        {/* Film grain over everything - crafted, not rendered. */}
         <div className="grain" aria-hidden />
 
         <a

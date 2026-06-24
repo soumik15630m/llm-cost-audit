@@ -4,7 +4,7 @@ import { useRef, type ReactNode } from "react";
 import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 
 /**
- * Magnetic wrapper — the element drifts a few pixels toward the cursor and
+ * Magnetic wrapper - the element drifts a few pixels toward the cursor and
  * springs back on leave. Restrained "micro-delight", reduced-motion aware.
  * Wrap a CTA/link with this; pass `strength` for how far it pulls (px).
  */

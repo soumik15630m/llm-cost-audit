@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 
 /**
- * Ambient hero backdrop — warm gold drift + faint grid, with a subtle
+ * Ambient hero backdrop - warm gold drift + faint grid, with a subtle
  * scroll-linked parallax (grid drifts down slower than the page). Pure
  * transform, reduced-motion aware.
  */

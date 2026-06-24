@@ -1,5 +1,5 @@
 /**
- * Custom line-icon set — drawn specifically for this site (consistent 1.6px
+ * Custom line-icon set - drawn specifically for this site (consistent 1.6px
  * rounded strokes, currentColor). Replaces unicode arrows / ▸ / + so nothing
  * reads as a stock glyph.
  */
@@ -55,7 +55,7 @@ export const Plus = (p: IconProps) => (
   </Base>
 );
 
-/** Uncached repeated context — overlapping stacked frames re-sent each call. */
+/** Uncached repeated context - overlapping stacked frames re-sent each call. */
 export const IconCache = (p: IconProps) => (
   <Base {...p}>
     <rect x="3.5" y="3.5" width="11" height="11" rx="2" />
@@ -63,7 +63,7 @@ export const IconCache = (p: IconProps) => (
   </Base>
 );
 
-/** Over-powered models — descending tiers. */
+/** Over-powered models - descending tiers. */
 export const IconTier = (p: IconProps) => (
   <Base {...p}>
     <path d="M5 6h14" />
@@ -72,7 +72,7 @@ export const IconTier = (p: IconProps) => (
   </Base>
 );
 
-/** No batching — a grid of async jobs. */
+/** No batching - a grid of async jobs. */
 export const IconBatch = (p: IconProps) => (
   <Base {...p}>
     <rect x="4" y="4" width="6" height="6" rx="1.4" />
@@ -82,7 +82,7 @@ export const IconBatch = (p: IconProps) => (
   </Base>
 );
 
-/** Unmanaged context growth — expanding outward. */
+/** Unmanaged context growth - expanding outward. */
 export const IconContext = (p: IconProps) => (
   <Base {...p}>
     <path d="M9 4H5a1 1 0 0 0-1 1v4" />
@@ -108,7 +108,7 @@ export const Check = (p: IconProps) => (
   </Base>
 );
 
-/** Brand monogram — a stylized falling-cost meridian inside a ring. */
+/** Brand monogram - a stylized falling-cost meridian inside a ring. */
 export const Monogram = ({ size = 28, ...p }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden {...p}>
     <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="8.4" fill="#15110d" stroke="rgba(240,231,214,0.12)" />

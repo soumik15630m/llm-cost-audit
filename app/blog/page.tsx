@@ -24,14 +24,14 @@ export default function BlogIndexPage() {
         </h1>
         <p className="mt-5 max-w-2xl text-lg text-muted">
           Direct, vendor-neutral notes on where inference spend leaks and how to
-          recover it — the same analysis an assessment runs against your real
+          recover it - the same analysis an assessment runs against your real
           usage.
         </p>
       </Reveal>
 
       {posts.length === 0 ? (
         <p className="mt-12 rounded-xl border border-[var(--hairline)] p-6 text-muted">
-          CONTENT PENDING — founder to supply blog posts in{" "}
+          CONTENT PENDING - founder to supply blog posts in{" "}
           <code className="tabular">content/blog/*.md</code>.
         </p>
       ) : (

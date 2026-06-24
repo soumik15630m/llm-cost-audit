@@ -6,9 +6,9 @@ import Magnetic from "@/components/Magnetic";
 import { ArrowUpRight, Download, ArrowRight } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Sample audit — see what your findings report looks like",
+  title: "Sample audit - see what your findings report looks like",
   description:
-    "Download an illustrative LLM cost audit: a Series-A support workload taken from ~$11k to ~$4.2k/mo, with the leak breakdown, before/after math, and the fix — clearly labeled a sample.",
+    "Download an illustrative LLM cost audit: a Series-A support workload taken from ~$11k to ~$4.2k/mo, with the leak breakdown, before/after math, and the fix - clearly labeled a sample.",
   alternates: { canonical: "/resources" },
 };
 
@@ -31,7 +31,7 @@ export default function ResourcesPage() {
             See exactly what your audit will look like.
           </h1>
           <p className="mt-5 max-w-md text-lg text-muted">
-            A complete, illustrative findings report — the same structure you
+            A complete, illustrative findings report - the same structure you
             receive after a $750 assessment, on a fictional but realistic
             profile. Read it before you ever send a usage export.
           </p>
@@ -39,7 +39,7 @@ export default function ResourcesPage() {
           <div className="mt-8 rounded-xl border border-[rgba(227,181,102,0.3)] bg-[rgba(227,181,102,0.05)] p-5">
             <p className="text-sm leading-relaxed text-body">
               <span className="font-semibold text-accent">
-                Sample report —
+                Sample report -
               </span>{" "}
               illustrative figures only. Contains no real company or client data.
               The design is the real deliverable; the numbers are made up to show
@@ -48,7 +48,7 @@ export default function ResourcesPage() {
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            {/* Static file in /public — opens the print-ready report; "Save as
+            {/* Static file in /public - opens the print-ready report; "Save as
                 PDF" from the browser produces the downloadable PDF. */}
             <Magnetic>
               <a

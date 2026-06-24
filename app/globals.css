@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
- * Design system — "dark editorial / engineering ledger".
+ * Design system - "dark editorial / engineering ledger".
  *
  * Committed dark-editorial lane (the Linear / Palantir / Payhawk camp, not the
  * neon-shader one): warm near-black, a single confident honey-gold accent, a
@@ -11,7 +11,7 @@
  */
 @theme {
   /* Warm palette */
-  --color-ink: #0a0908; /* page background — warm near-black */
+  --color-ink: #0a0908; /* page background - warm near-black */
   --color-ink-2: #0d0b09; /* alternating section band */
   --color-ink-elevated: #15110d; /* cards / elevated surfaces */
   --color-accent: #e3b566; /* single honey-gold accent, used sparingly */
@@ -20,7 +20,7 @@
   --color-headline: #fcf8f0; /* warm white headlines */
   --color-muted: #9a9082; /* warm secondary text */
 
-  /* Type — injected by next/font in layout.tsx */
+  /* Type - injected by next/font in layout.tsx */
   --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
   --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
@@ -67,7 +67,7 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Neo-serif display for all headings — the editorial signal. */
+  /* Neo-serif display for all headings - the editorial signal. */
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     color: var(--color-headline);
@@ -122,7 +122,7 @@
     opacity: 0.8;
   }
 
-  /* Primary — honey-gold. Magnetic wrapper adds the translate; this is the rest. */
+  /* Primary - honey-gold. Magnetic wrapper adds the translate; this is the rest. */
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -202,7 +202,7 @@
   }
 }
 
-/* Film grain — CSS/SVG noise over everything (performant, premium, no WebGL). */
+/* Film grain - CSS/SVG noise over everything (performant, premium, no WebGL). */
 .grain {
   position: fixed;
   inset: 0;
@@ -213,7 +213,7 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Ambient hero backdrop — warm gold drift + faint grid. Pure CSS. */
+/* Ambient hero backdrop - warm gold drift + faint grid. Pure CSS. */
 .ambient {
   position: absolute;
   inset: 0;
@@ -246,7 +246,7 @@
 }
 
 /*
- * Isometric cost-stack — the scroll-teardown centerpiece. CSS 3D only (no WebGL):
+ * Isometric cost-stack - the scroll-teardown centerpiece. CSS 3D only (no WebGL):
  * a stack of "context layer" plates on a glowing GPU/API base, in an isometric
  * scene. Plates lift along Z (which reads as "up" after the rotateX tilt).
  */
@@ -318,7 +318,7 @@
 }
 
 /*
- * Prose — blog + legal. Neo-serif headings, gold links, mono code, warm tables.
+ * Prose - blog + legal. Neo-serif headings, gold links, mono code, warm tables.
  */
 .prose {
   color: var(--color-body);
@@ -388,7 +388,7 @@
 .prose th { color: var(--color-headline); font-weight: 600; background: rgba(240, 231, 214, 0.03); }
 .prose em { color: var(--color-muted); font-family: var(--font-display); }
 
-/* Reduced motion — instant, no transforms, grain/ambient frozen. */
+/* Reduced motion - instant, no transforms, grain/ambient frozen. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

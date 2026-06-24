@@ -6,7 +6,7 @@ import { getLegalDoc } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How LLM Cost Audit handles your information. Confidentiality is the default — usage data is shared only under a mutual NDA, never through a web form.",
+    "How LLM Cost Audit handles your information. Confidentiality is the default - usage data is shared only under a mutual NDA, never through a web form.",
   alternates: { canonical: "/privacy" },
 };
 

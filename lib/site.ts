@@ -2,13 +2,13 @@
  * Central site configuration.
  *
  * Every canonical URL, sitemap entry, OG image URL, and JSON-LD `@id` is derived
- * from `url` — set it once here and the whole SEO layer follows.
+ * from `url` - set it once here and the whole SEO layer follows.
  */
 export const site = {
-  // Service brand (what we do — also the SEO-valuable term).
+  // Service brand (what we do - also the SEO-valuable term).
   name: "LLM Cost Audit",
   wordmark: "LLM Cost Audit",
-  // Studio/practice behind the service — and the name on the domain.
+  // Studio/practice behind the service - and the name on the domain.
   studio: {
     name: "House of STK",
     // One-liner used to justify the houseofstk.com domain in marketing copy.
@@ -21,7 +21,7 @@ export const site = {
   url: "https://llm.houseofstk.com",
   // Used in <title> templates and OG.
   shortDescription:
-    "Independent LLM inference cost audits. Find the 40–70% of your OpenAI / Anthropic bill that leaks — and recover it.",
+    "Independent LLM inference cost audits. Find the 40-70% of your OpenAI / Anthropic bill that leaks - and recover it.",
   // The email first-contact replies and legal requests route to.
   contactEmail: "hello@houseofstk.com",
   // The single audit price, surfaced in copy and Service JSON-LD.
@@ -37,7 +37,7 @@ export const site = {
   lang: "en",
 } as const;
 
-/** Absolute URL helper — always produces a canonical, production-domain URL. */
+/** Absolute URL helper - always produces a canonical, production-domain URL. */
 export function absoluteUrl(path = ""): string {
   const clean = path.startsWith("/") ? path : `/${path}`;
   return `${site.url}${clean === "/" ? "" : clean}`;

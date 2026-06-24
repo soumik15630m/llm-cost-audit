@@ -30,15 +30,15 @@ export default function Footer() {
         <div className="max-w-xs">
           <Wordmark />
           <p className="mt-4 text-sm leading-relaxed text-muted">
-            Independent LLM inference cost audits. We find the 40–70% of your
-            OpenAI / Anthropic bill that leaks — and the dollar math to recover it.
+            Independent LLM inference cost audits. We find the 40-70% of your
+            OpenAI / Anthropic bill that leaks - and the dollar math to recover it.
           </p>
           <p className="mt-4 text-sm leading-relaxed text-muted">
             A practice of{" "}
             <span className="font-[family-name:var(--font-display)] text-body">
               {site.studio.name}
             </span>{" "}
-            — {site.studio.line}.
+            - {site.studio.line}.
           </p>
           <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] px-3 py-1 text-xs text-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />

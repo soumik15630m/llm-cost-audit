@@ -128,7 +128,7 @@ export default async function BlogPostPage({
           </h2>
           <p className="mt-3 text-body/85">
             A $750 assessment turns your usage export into a line-by-line
-            findings report — the same analysis above, with your dollar figures.
+            findings report - the same analysis above, with your dollar figures.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link href="/contact" className="btn-primary">

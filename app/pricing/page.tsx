@@ -9,29 +9,29 @@ import { faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Pricing — $750 assessment, savings-based implementation",
+  title: "Pricing - $750 assessment, savings-based implementation",
   description:
-    "A transparent $750 inference cost assessment, plus optional implementation priced as a flat fee or a share of verified per-unit savings — measured against your own invoices.",
+    "A transparent $750 inference cost assessment, plus optional implementation priced as a flat fee or a share of verified per-unit savings - measured against your own invoices.",
   alternates: { canonical: "/pricing" },
 };
 
-// FAQ — rendered on-page AND emitted as FAQPage JSON-LD for AI answer engines.
+// FAQ - rendered on-page AND emitted as FAQPage JSON-LD for AI answer engines.
 // Questions are phrased the way buyers actually ask them (AEO/GEO).
 const faqs = [
   {
     question: "What exactly is included in the $750 assessment?",
     answer:
-      "A structured analysis of a usage export from your OpenAI / Anthropic account, delivered as a written findings report. It identifies where spend leaks — uncached repeated context, over-powered models on low-complexity calls, async work not using the Batch API, and unmanaged context growth — and shows current-vs-optimized cost on each line, ranked by recoverable dollars. The report is yours to keep and act on, with or without implementation.",
+      "A structured analysis of a usage export from your OpenAI / Anthropic account, delivered as a written findings report. It identifies where spend leaks - uncached repeated context, over-powered models on low-complexity calls, async work not using the Batch API, and unmanaged context growth - and shows current-vs-optimized cost on each line, ranked by recoverable dollars. The report is yours to keep and act on, with or without implementation.",
   },
   {
-    question: "What data do you need — do I upload my prompts or billing?",
+    question: "What data do you need - do I upload my prompts or billing?",
     answer:
-      "No. You send a usage export from your provider dashboard after a mutual NDA is in place. You never upload prompts, customer data, or billing credentials through a web form. The assessment works from aggregate usage data — token counts, model mix, call patterns — not the content of your requests.",
+      "No. You send a usage export from your provider dashboard after a mutual NDA is in place. You never upload prompts, customer data, or billing credentials through a web form. The assessment works from aggregate usage data - token counts, model mix, call patterns - not the content of your requests.",
   },
   {
     question: "Is the $750 refundable?",
     answer:
-      "No. The assessment is a fixed, non-refundable $750. It produces a real deliverable — a findings report with the dollar math — regardless of whether you choose to implement anything afterward.",
+      "No. The assessment is a fixed, non-refundable $750. It produces a real deliverable - a findings report with the dollar math - regardless of whether you choose to implement anything afterward.",
   },
   {
     question: "How is implementation priced?",
@@ -41,12 +41,12 @@ const faqs = [
   {
     question: "How exactly do you measure savings?",
     answer:
-      "Savings are measured as unit cost — cost per 1,000 calls, or per conversation, or per user — on a fixed, agreed sample of your traffic, compared before and after. We deliberately measure unit cost, not your total monthly bill, because your usage grows over time and a growing total would hide the per-unit improvement. Unit cost is verifiable against your own invoices, so payment can be made when your next bill confirms the result.",
+      "Savings are measured as unit cost - cost per 1,000 calls, or per conversation, or per user - on a fixed, agreed sample of your traffic, compared before and after. We deliberately measure unit cost, not your total monthly bill, because your usage grows over time and a growing total would hide the per-unit improvement. Unit cost is verifiable against your own invoices, so payment can be made when your next bill confirms the result.",
   },
   {
     question: "Why measure unit cost instead of the total monthly bill?",
     answer:
-      "Because total spend grows with usage. If we billed on the total, a successful optimization could be masked by your product growing — or worse, we could appear to 'save' money in a slow month we had nothing to do with. Cost per unit isolates efficiency from growth: it's the only number that proves the optimization itself worked.",
+      "Because total spend grows with usage. If we billed on the total, a successful optimization could be masked by your product growing - or worse, we could appear to 'save' money in a slow month we had nothing to do with. Cost per unit isolates efficiency from growth: it's the only number that proves the optimization itself worked.",
   },
   {
     question: "How long does the assessment take?",
@@ -56,7 +56,7 @@ const faqs = [
   {
     question: "Is my usage kept confidential?",
     answer:
-      "Yes — confidentiality is the default, not an upsell. A mutual NDA is signed before any data is shared. Your identity, usage, and numbers stay private, and the client list is never disclosed to anyone.",
+      "Yes - confidentiality is the default, not an upsell. A mutual NDA is signed before any data is shared. Your identity, usage, and numbers stay private, and the client list is never disclosed to anyone.",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function PricingPage() {
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-muted">
             No retainers, no checkout, no surprise scope. A flat assessment fee,
-            and — if you want the fixes made — a model that ties our pay to
+            and - if you want the fixes made - a model that ties our pay to
             savings you can verify yourself.
           </p>
         </Reveal>
@@ -98,7 +98,7 @@ export default function PricingPage() {
               <ul className="mt-7 space-y-3 text-body/90">
                 {[
                   "Mutual NDA before any data is shared",
-                  "Analysis of your usage export — not your prompts or billing",
+                  "Analysis of your usage export - not your prompts or billing",
                   "Written findings report, ranked by recoverable dollars",
                   "Current-vs-optimized math on every line",
                   "Yours to keep and implement, with or without us",
@@ -119,7 +119,7 @@ export default function PricingPage() {
 
           <Reveal delay={0.08}>
             <div className="card flex h-full flex-col p-8">
-              <p className="eyebrow">Step two — optional</p>
+              <p className="eyebrow">Step two - optional</p>
               <h2 className="mt-3 text-2xl font-semibold text-headline">
                 Implementation
               </h2>
@@ -164,8 +164,8 @@ export default function PricingPage() {
             <div className="mt-6 grid gap-8 text-lg leading-relaxed text-body/90 md:grid-cols-2">
               <p>
                 Savings are measured as{" "}
-                <span className="text-accent">unit cost</span> — cost per 1,000
-                calls (or per conversation, or per user) — on a{" "}
+                <span className="text-accent">unit cost</span> - cost per 1,000
+                calls (or per conversation, or per user) - on a{" "}
                 <span className="text-headline">
                   fixed, agreed sample of your traffic
                 </span>

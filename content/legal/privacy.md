@@ -24,7 +24,7 @@ We deliberately do not ask for billing credentials, account access, prompts, or 
 
 ### Engagement information (provided under NDA)
 
-If you engage us, you may share a **usage export** from your AI provider account so we can analyse it. A usage export consists of aggregate metadata — such as token counts, model mix, call volumes, and the cost figures on your invoices. We do **not** ask for, and you should not send, the content of your prompts or responses, your customers' data, or your API keys and account credentials. All such engagement information is treated as Confidential Information under a mutual non-disclosure agreement signed before any data is shared, is used solely to perform your audit, and is never used to train models or for marketing.
+If you engage us, you may share a **usage export** from your AI provider account so we can analyse it. A usage export consists of aggregate metadata - such as token counts, model mix, call volumes, and the cost figures on your invoices. We do **not** ask for, and you should not send, the content of your prompts or responses, your customers' data, or your API keys and account credentials. All such engagement information is treated as Confidential Information under a mutual non-disclosure agreement signed before any data is shared, is used solely to perform your audit, and is never used to train models or for marketing.
 
 ### Information collected automatically
 

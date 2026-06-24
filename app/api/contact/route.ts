@@ -1,21 +1,21 @@
 /**
- * Contact form delivery — a Vercel Edge Function. No separate backend.
+ * Contact form delivery - a Vercel Edge Function. No separate backend.
  *
  * On each valid submission it sends TWO emails via Resend:
- *   1. To the lead   — a personalized reply with next steps + a link to your
+ *   1. To the lead   - a personalized reply with next steps + a link to your
  *                      Slack so they can follow up in chat.
- *   2. To you        — a "{name} from {company} just joined" notification with
+ *   2. To you        - a "{name} from {company} just joined" notification with
  *                      their details (reply-to is set to the lead).
  *
  * Everything is configured by environment variables (see .env.example):
- *   RESEND_API_KEY      (required)  Resend API key — https://resend.com
+ *   RESEND_API_KEY      (required)  Resend API key - https://resend.com
  *   CONTACT_TO_EMAIL    (required)  where YOUR notification is sent ("to me")
  *   CONTACT_FROM_EMAIL  (recommended) verified sender, e.g.
  *                         "LLM Cost Audit <hello@yourdomain.com>".
  *                         NOTE: to email *leads* (external addresses) the from
  *                         domain must be verified in Resend. The default
  *                         onboarding@resend.dev only delivers to your own
- *                         account address — fine for the notification, not for
+ *                         account address - fine for the notification, not for
  *                         the lead reply.
  *   SLACK_INVITE_URL    (optional)  Slack invite/channel link for follow-ups,
  *                         included in both emails.
@@ -23,7 +23,7 @@
  * If RESEND_API_KEY is unset, the submission is written to the function logs and
  * the form still succeeds. Set STRICT_CONTACT=1 to fail loudly instead.
  *
- * Edge runtime: only `fetch` is used — fast, cheap, zero-config on Vercel.
+ * Edge runtime: only `fetch` is used - fast, cheap, zero-config on Vercel.
  */
 import { site } from "@/lib/site";
 import { neon } from "@neondatabase/serverless";
@@ -33,7 +33,7 @@ import { Redis } from "@upstash/redis";
 export const runtime = "edge";
 
 /**
- * Per-IP rate limiting (Upstash Redis) — prevents abuse of this endpoint:
+ * Per-IP rate limiting (Upstash Redis) - prevents abuse of this endpoint:
  * inbox/email bombing, Resend-quota exhaustion, and junk DB rows. Skipped if the
  * env vars aren't set (form still works), but it should be enabled in production.
  * 5 requests per 10 minutes per IP is generous for real users, tight for abuse.
@@ -59,7 +59,7 @@ type Payload = {
   spend?: string;
   /** acceptance of Terms + Privacy Policy (required by the form) */
   consent?: boolean;
-  /** honeypot — real users never fill this hidden field */
+  /** honeypot - real users never fill this hidden field */
   company_website?: string;
 };
 
@@ -163,7 +163,7 @@ export async function POST(req: Request) {
     const { success } = await ratelimit.limit(ip || "anonymous");
     if (!success) {
       return Response.json(
-        { ok: false, error: "Too many requests — please try again later." },
+        { ok: false, error: "Too many requests - please try again later." },
         { status: 429 }
       );
     }
@@ -215,11 +215,11 @@ export async function POST(req: Request) {
   const leadEmail: Email = {
     to: email,
     replyTo: founderTo,
-    subject: "Your LLM cost assessment — next steps",
+    subject: "Your LLM cost assessment - next steps",
     text:
       `Hi ${firstName},\n\n` +
       `Thanks for reaching out about an LLM inference cost assessment. Here's what happens next:\n\n` +
-      `  1. We sign a mutual NDA — before any data is shared.\n` +
+      `  1. We sign a mutual NDA - before any data is shared.\n` +
       `  2. You send a usage export from your provider dashboard (not prompts, not billing).\n` +
       `  3. You get a $${site.assessmentPriceUSD} findings report with the dollar math, line by line.\n` +
       slackText +
@@ -229,7 +229,7 @@ export async function POST(req: Request) {
       `<p>Hi ${esc(firstName)},</p>` +
       `<p>Thanks for reaching out about an LLM inference cost assessment. Here's what happens next:</p>` +
       `<ol style="padding-left:18px">` +
-      `<li>We sign a <strong>mutual NDA</strong> — before any data is shared.</li>` +
+      `<li>We sign a <strong>mutual NDA</strong> - before any data is shared.</li>` +
       `<li>You send a <strong>usage export</strong> from your provider dashboard (not prompts, not billing).</li>` +
       `<li>You get a <strong>$${site.assessmentPriceUSD} findings report</strong> with the dollar math, line by line.</li>` +
       `</ol>` +
@@ -248,7 +248,7 @@ export async function POST(req: Request) {
     ? {
         to: founderTo,
         replyTo: email,
-        subject: `New assessment request — ${company}`,
+        subject: `New assessment request - ${company}`,
         text:
           `${name} from ${company} just requested an assessment.\n\n` +
           `Name:    ${name}\n` +

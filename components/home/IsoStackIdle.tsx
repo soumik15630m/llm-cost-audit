@@ -37,7 +37,7 @@ export default function IsoStackIdle() {
         </div>
       </div>
 
-      {/* 2D HUD badge — kept flat for legibility */}
+      {/* 2D HUD badge - kept flat for legibility */}
       <div className="absolute right-1 top-2 rounded-lg border border-[var(--hairline)] bg-ink/70 px-3 py-2 backdrop-blur-sm">
         <div className="text-[10px] uppercase tracking-[0.18em] text-muted">
           Current spend
@@ -49,7 +49,7 @@ export default function IsoStackIdle() {
       </div>
 
       <p className="absolute bottom-0 left-1 text-xs text-muted">
-        Your context stack — re-sent on every call.
+        Your context stack - re-sent on every call.
       </p>
     </div>
   );

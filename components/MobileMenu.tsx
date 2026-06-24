@@ -5,7 +5,7 @@ import Link from "next/link";
 import { navLinks } from "./nav-links";
 
 /**
- * Mobile navigation island — the only interactive part of the header.
+ * Mobile navigation island - the only interactive part of the header.
  * Keeps the rest of the header as a Server Component (minimal client JS).
  */
 export default function MobileMenu() {

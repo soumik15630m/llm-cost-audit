@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
 // Default sitewide OG image (home + any page without its own).
-export const alt = "LLM Cost Audit — cut your OpenAI / Anthropic bill 40–70%";
+export const alt = "LLM Cost Audit - cut your OpenAI / Anthropic bill 40-70%";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -49,7 +49,7 @@ export default function OgImage() {
             flexWrap: "wrap",
           }}
         >
-          Your LLM bill is&nbsp;<span style={{ color: "#e3b566" }}>40–70% larger</span>
+          Your LLM bill is&nbsp;<span style={{ color: "#e3b566" }}>40-70% larger</span>
           &nbsp;than it needs to be.
         </div>
 

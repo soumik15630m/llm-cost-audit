@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Book an assessment",
   description:
-    "Start a confidential conversation about a $750 LLM cost assessment. Four fields, no billing data — usage exports are shared later, only after a mutual NDA.",
+    "Start a confidential conversation about a $750 LLM cost assessment. Four fields, no billing data - usage exports are shared later, only after a mutual NDA.",
   alternates: { canonical: "/contact" },
 };
 
@@ -22,7 +22,7 @@ export default function ContactPage() {
             Book an assessment
           </h1>
           <p className="mt-5 max-w-md text-lg text-muted">
-            Tell us where you are and we&apos;ll take it from there — starting
+            Tell us where you are and we&apos;ll take it from there - starting
             with a mutual NDA, before any data changes hands.
           </p>
 
@@ -38,7 +38,7 @@ export default function ContactPage() {
               },
               {
                 t: "3. Usage export",
-                d: "You send an export from your provider dashboard — out-of-band, never through this form.",
+                d: "You send an export from your provider dashboard - out-of-band, never through this form.",
               },
               {
                 t: "4. Findings report",

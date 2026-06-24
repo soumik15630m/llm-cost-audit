@@ -12,7 +12,7 @@ const SERVICE_ID = `${site.url}/#service`;
 const WEBSITE_ID = `${site.url}/#website`;
 const LEAD_ID = `${site.url}/#lead`;
 
-/** The engineer in charge — Person entity with LinkedIn sameAs (E-E-A-T). */
+/** The engineer in charge - Person entity with LinkedIn sameAs (E-E-A-T). */
 export function personSchema() {
   return {
     "@context": "https://schema.org",
@@ -26,7 +26,7 @@ export function personSchema() {
   };
 }
 
-/** Organization + ProfessionalService — emitted sitewide in the root layout. */
+/** Organization + ProfessionalService - emitted sitewide in the root layout. */
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -60,7 +60,7 @@ export function organizationSchema() {
   };
 }
 
-/** Service — the audit offering, with the transparent $750 price. */
+/** Service - the audit offering, with the transparent $750 price. */
 export function serviceSchema() {
   return {
     "@context": "https://schema.org",
@@ -71,7 +71,7 @@ export function serviceSchema() {
     provider: { "@id": ORG_ID },
     areaServed: "Worldwide",
     description:
-      "A fixed-price assessment of your OpenAI / Anthropic usage that identifies where inference spend leaks — uncached context, over-powered models, missing Batch API, unmanaged context growth — with the dollar math, line by line.",
+      "A fixed-price assessment of your OpenAI / Anthropic usage that identifies where inference spend leaks - uncached context, over-powered models, missing Batch API, unmanaged context growth - with the dollar math, line by line.",
     offers: {
       "@type": "Offer",
       price: String(site.assessmentPriceUSD),
@@ -82,7 +82,7 @@ export function serviceSchema() {
   };
 }
 
-/** WebSite — emitted sitewide; reinforces the site as an entity for AI search. */
+/** WebSite - emitted sitewide; reinforces the site as an entity for AI search. */
 export function webSiteSchema() {
   return {
     "@context": "https://schema.org",
@@ -95,7 +95,7 @@ export function webSiteSchema() {
   };
 }
 
-/** Article — emitted on each blog post. */
+/** Article - emitted on each blog post. */
 export function articleSchema(post: {
   title: string;
   description: string;
@@ -118,7 +118,7 @@ export function articleSchema(post: {
   };
 }
 
-/** BreadcrumbList — emitted on deep pages (blog posts). */
+/** BreadcrumbList - emitted on deep pages (blog posts). */
 export function breadcrumbSchema(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
@@ -132,7 +132,7 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
   };
 }
 
-/** FAQPage — emitted on /pricing. High leverage for AI answer-engine citations. */
+/** FAQPage - emitted on /pricing. High leverage for AI answer-engine citations. */
 export function faqSchema(faqs: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",

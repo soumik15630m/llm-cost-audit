@@ -21,7 +21,7 @@ export default function LegalDocument({
       </h1>
       {doc.pending && (
         <p className="mt-4 rounded-lg border border-[rgba(227,181,102,0.3)] bg-[rgba(227,181,102,0.05)] px-4 py-3 text-sm text-body">
-          <span className="font-semibold text-accent">CONTENT PENDING</span> —
+          <span className="font-semibold text-accent">CONTENT PENDING</span> -
           founder to supply. Drop the finished Markdown at{" "}
           <code className="tabular">{doc.sourceFile.replace("/content", "content")}</code>{" "}
           and it renders here automatically.

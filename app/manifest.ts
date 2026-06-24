@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 /** Basic PWA manifest (theme color = deep ink). */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${site.name} — Inference cost audits`,
+    name: `${site.name} - Inference cost audits`,
     short_name: site.name,
     description: site.shortDescription,
     start_url: "/",

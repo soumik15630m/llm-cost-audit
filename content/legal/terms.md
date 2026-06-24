@@ -21,7 +21,7 @@ The assessment fee is **non-refundable**. It is earned upon delivery of the find
 
 Implementation is a separate, optional engagement, agreed in writing on a per-project basis. It is priced either as a flat fee or as a share of verified savings, whichever applies to the engagement.
 
-Where a fee is based on verified savings, **"savings" means the reduction in unit cost** — cost per 1,000 calls, or per conversation, or per user — measured on a **fixed, agreed sample of your traffic**, compared before and after the changes. We measure unit cost, not your total monthly bill, because total spend changes with usage volume. The measurement methodology, the sample, and the unit are agreed in writing before work begins, and the result is verifiable against your own provider invoices.
+Where a fee is based on verified savings, **"savings" means the reduction in unit cost** - cost per 1,000 calls, or per conversation, or per user - measured on a **fixed, agreed sample of your traffic**, compared before and after the changes. We measure unit cost, not your total monthly bill, because total spend changes with usage volume. The measurement methodology, the sample, and the unit are agreed in writing before work begins, and the result is verifiable against your own provider invoices.
 
 **Results commitment.** If the agreed savings on the agreed sample are not achieved, the savings-based fee for that work is not owed. This commitment applies only to the savings-based fee component and does not entitle you to a refund of the assessment fee or of any agreed flat fees for work performed.
 
@@ -77,7 +77,7 @@ We act as an independent contractor. Nothing in these Terms creates a partnershi
 
 ## 13. Term and termination
 
-These Terms apply while you use the Services. Either party may end an engagement as set out in the applicable written agreement. Sections that by their nature should survive — including those on fees already due, intellectual property, confidentiality, disclaimers, limitation of liability, indemnification, and governing law — survive termination.
+These Terms apply while you use the Services. Either party may end an engagement as set out in the applicable written agreement. Sections that by their nature should survive - including those on fees already due, intellectual property, confidentiality, disclaimers, limitation of liability, indemnification, and governing law - survive termination.
 
 ## 14. Governing law and disputes
 

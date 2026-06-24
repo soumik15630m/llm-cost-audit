@@ -45,7 +45,7 @@ All Confidential Information is provided "as is". The Disclosing Party makes no 
 
 ## 9. Term and survival
 
-This Agreement begins on the Effective Date and continues until terminated by either Party on thirty (30) days' written notice. Termination does not affect the confidentiality obligations for Confidential Information disclosed before termination, which continue for **five (5) years** from the date of disclosure — except that information constituting a trade secret remains protected for as long as it qualifies as a trade secret under applicable law.
+This Agreement begins on the Effective Date and continues until terminated by either Party on thirty (30) days' written notice. Termination does not affect the confidentiality obligations for Confidential Information disclosed before termination, which continue for **five (5) years** from the date of disclosure - except that information constituting a trade secret remains protected for as long as it qualifies as a trade secret under applicable law.
 
 ## 10. Return or destruction
 

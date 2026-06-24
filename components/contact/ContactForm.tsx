@@ -5,7 +5,7 @@ import { Check } from "@/components/icons";
 import { site } from "@/lib/site";
 
 /**
- * Minimal first-contact form — name, work email, company, monthly spend range.
+ * Minimal first-contact form - name, work email, company, monthly spend range.
  *
  * HARD RULE: this form NEVER collects billing or usage data. A billing-data web
  * form on first contact is a trust red flag to this audience. Usage exports are
@@ -16,9 +16,9 @@ import { site } from "@/lib/site";
  */
 const SPEND_RANGES = [
   "Under $2k / mo",
-  "$2k – $10k / mo",
-  "$10k – $50k / mo",
-  "$50k – $200k / mo",
+  "$2k - $10k / mo",
+  "$10k - $50k / mo",
+  "$50k - $200k / mo",
   "$200k+ / mo",
   "Not sure yet",
 ] as const;
@@ -46,7 +46,7 @@ export default function ContactForm() {
 
     try {
       // Delivered by the bundled Edge route at app/api/contact/route.ts.
-      // No usage/billing data is ever sent — only these four fields.
+      // No usage/billing data is ever sent - only these four fields.
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -66,11 +66,11 @@ export default function ContactForm() {
           <Check size={22} />
         </div>
         <h2 className="mt-5 text-xl font-semibold text-headline">
-          Thanks — message received.
+          Thanks - message received.
         </h2>
         <p className="mt-3 text-body/85">
           {/* FOUNDER-FILL: confirm the real follow-up flow / SLA wording. */}
-          Check your inbox — we&apos;ve emailed you the next steps and a link to
+          Check your inbox - we&apos;ve emailed you the next steps and a link to
           our Slack for follow-ups. No usage data is needed yet.
         </p>
       </div>
@@ -174,7 +174,7 @@ export default function ContactForm() {
           )}
         </div>
 
-        {/* Honeypot — hidden from users; bots that fill it are silently dropped. */}
+        {/* Honeypot - hidden from users; bots that fill it are silently dropped. */}
         <input
           type="text"
           name="company_website"
@@ -186,7 +186,7 @@ export default function ContactForm() {
           className="hidden"
         />
 
-        {/* Required consent. Links open in a new tab so reading is optional —
+        {/* Required consent. Links open in a new tab so reading is optional -
             ticking is all that's needed to proceed. */}
         <label htmlFor="consent" className="flex cursor-pointer items-start gap-3 text-sm text-muted">
           <input
@@ -254,7 +254,7 @@ export default function ContactForm() {
 
         <p className="text-xs leading-relaxed text-muted">
           We only ask for these four fields. No billing credentials, prompts, or
-          usage data — those are shared later, after a mutual NDA, never through
+          usage data - those are shared later, after a mutual NDA, never through
           a web form.
         </p>
       </div>

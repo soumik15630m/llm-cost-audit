@@ -62,7 +62,7 @@ export default async function OgImage({ params }: { params: { slug: string } }) 
             Independent inference cost audits
           </div>
           <div style={{ color: "#e3b566", fontSize: 26, fontWeight: 600 }}>
-            40–70% recoverable
+            40-70% recoverable
           </div>
         </div>
       </div>
