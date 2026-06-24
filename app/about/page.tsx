@@ -163,15 +163,14 @@ export default function AboutPage() {
               <p className="mt-1 text-sm uppercase tracking-[0.14em] text-muted">
                 {site.lead.role}
               </p>
-              <p className="mt-4 max-w-xl text-[1.02rem] leading-relaxed text-body/90">
-                I run the audits here — every one, end to end. My background is in
-                systems and performance engineering; this is the same work,
-                pointed at inference cost. LLM bills get expensive in a handful of
-                predictable ways, and most teams are too busy shipping to chase
-                them down. That&apos;s the part I handle: find where the spend
-                leaks, fix it without changing what your users see, and show the
-                math against your own invoices.
-              </p>
+              <blockquote className="mt-4 max-w-xl border-l-2 border-accent pl-5 text-[1.02rem] leading-relaxed text-body/90">
+                &ldquo;We run every audit hands-on, end to end — systems and
+                performance engineering, pointed at inference cost. LLM bills get
+                expensive in a handful of predictable ways, and most teams are too
+                busy shipping to chase them down. That&apos;s what we handle: find
+                where the spend leaks, fix it without changing what your users
+                see, and prove the savings against your own invoices.&rdquo;
+              </blockquote>
               <Magnetic strength={8}>
                 <a
                   href={site.lead.linkedin}
