@@ -3,7 +3,7 @@ title: "Mutual Non-Disclosure Agreement"
 description: "The bilateral confidentiality agreement signed before any data is shared with LLM Cost Audit."
 ---
 
-This Mutual Non-Disclosure Agreement ("Agreement") is entered into between **House of STK Ltd**, operating as LLM Cost Audit ("House of STK"), and the counterparty identified in the signature block below (each a "Party" and together the "Parties"), effective as of the date of the last signature below (the "Effective Date"). It protects information disclosed in both directions: each Party may act as a "Disclosing Party" and a "Receiving Party".
+This Mutual Non-Disclosure Agreement ("Agreement") is entered into between **House of STK, a sole proprietorship of Soumik Ghosh**, operating as LLM Cost Audit ("House of STK"), and the counterparty identified in the signature block below (each a "Party" and together the "Parties"), effective as of the date of the last signature below (the "Effective Date"). It protects information disclosed in both directions: each Party may act as a "Disclosing Party" and a "Receiving Party".
 
 ## 1. Purpose
 
@@ -61,18 +61,18 @@ The Parties agree that a breach of this Agreement may cause irreparable harm for
 
 ## 13. General
 
-This Agreement is governed by the laws of England and Wales, and the courts of England and Wales have exclusive jurisdiction over any dispute, except that either Party may seek injunctive relief in any court of competent jurisdiction. It is the entire agreement between the Parties regarding its subject matter and supersedes prior discussions. It may be amended only in a writing signed by both Parties. No failure to enforce a provision is a waiver. If any provision is held unenforceable, the rest remains in effect. Neither Party may assign this Agreement without the other's prior written consent, except in connection with a merger or sale of substantially all of its assets. This Agreement may be signed in counterparts, including by electronic signature, each of which is an original.
+This Agreement is governed by the laws of India, and the courts of Mumbai, Maharashtra have exclusive jurisdiction over any dispute, except that either Party may seek injunctive relief in any court of competent jurisdiction. It is the entire agreement between the Parties regarding its subject matter and supersedes prior discussions. It may be amended only in a writing signed by both Parties. No failure to enforce a provision is a waiver. If any provision is held unenforceable, the rest remains in effect. Neither Party may assign this Agreement without the other's prior written consent, except in connection with a sale or transfer of the business to which this Agreement relates. This Agreement may be signed in counterparts, including by electronic signature, each of which is an original.
 
 ---
 
 **Agreed and accepted:**
 
-| | House of STK Ltd | Counterparty |
+| | House of STK, a sole proprietorship of Soumik Ghosh | Counterparty |
 |---|---|---|
 | Signature | ________________________ | ________________________ |
 | Name | ________________________ | ________________________ |
 | Title | ________________________ | ________________________ |
-| Company | House of STK Ltd | ________________________ |
+| Company | House of STK, a sole proprietorship of Soumik Ghosh | ________________________ |
 | Date | ________________________ | ________________________ |
 
 To request a copy for signature, contact **hello@houseofstk.com**.

@@ -5,7 +5,7 @@ description: "The terms governing LLM Cost Audit's website and inference cost au
 
 **Effective date: 22 June 2026**
 
-These Terms of Service ("Terms") govern your access to and use of the LLM Cost Audit website and our LLM inference cost audit services (together, the "Services") provided by House of STK Ltd, operating as LLM Cost Audit ("LLM Cost Audit", "we", "us", or "our"). By using the website or engaging us, you agree to these Terms. If you are agreeing on behalf of a company, you represent that you are authorised to bind that company ("you" or "Client").
+These Terms of Service ("Terms") govern your access to and use of the LLM Cost Audit website and our LLM inference cost audit services (together, the "Services") provided by House of STK, a sole proprietorship of Soumik Ghosh, operating as LLM Cost Audit ("LLM Cost Audit", "we", "us", or "our"). By using the website or engaging us, you agree to these Terms. If you are agreeing on behalf of a company, you represent that you are authorised to bind that company ("you" or "Client").
 
 ## 1. The Services
 
@@ -81,7 +81,7 @@ These Terms apply while you use the Services. Either party may end an engagement
 
 ## 14. Governing law and disputes
 
-These Terms are governed by the laws of England and Wales, and the courts of England and Wales have exclusive jurisdiction over any dispute, except that either party may seek injunctive relief in any court of competent jurisdiction.
+These Terms are governed by the laws of India, and the courts of Mumbai, Maharashtra have exclusive jurisdiction over any dispute, except that either party may seek injunctive relief in any court of competent jurisdiction.
 
 ## 15. General
 

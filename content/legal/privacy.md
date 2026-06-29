@@ -5,7 +5,7 @@ description: "How LLM Cost Audit collects, uses, shares, and protects personal i
 
 **Effective date: 22 June 2026**
 
-This Privacy Policy explains how House of STK Ltd, operating as LLM Cost Audit ("LLM Cost Audit", "we", "us", or "our"), handles personal information in connection with our website and our LLM inference cost audit services (together, the "Services"). We keep what we collect to the minimum needed to respond to you and to deliver our work, and confidentiality is built into how we operate.
+This Privacy Policy explains how House of STK, a sole proprietorship of Soumik Ghosh, operating as LLM Cost Audit ("LLM Cost Audit", "we", "us", or "our"), handles personal information in connection with our website and our LLM inference cost audit services (together, the "Services"). We keep what we collect to the minimum needed to respond to you and to deliver our work, and confidentiality is built into how we operate.
 
 If you have any questions, contact us at **hello@houseofstk.com**.
 
@@ -99,7 +99,7 @@ We may update this Privacy Policy from time to time. When we do, we will revise 
 
 ## 12. Governing law
 
-This Privacy Policy and any dispute relating to it are governed by the laws of England and Wales.
+This Privacy Policy and any dispute relating to it are governed by the laws of India, with the courts of Mumbai, Maharashtra having jurisdiction.
 
 ## 13. Contact
 
